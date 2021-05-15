@@ -1,0 +1,901 @@
+/* ------------------ Root ------------------------ */
+
+:root {
+  --navbar-color: /*#f5fef5*/ #44566c;
+  --footer-color: #2f435e;
+  --separator-color: #ececec;
+  --title-font: "Italiana", serif;
+  --title-color: #2f435e;
+  --text-form: #ececec;
+  --text-color: #2f435e;
+  --text-font: "Roboto", sans-serif;
+  --body-font: #ececec /*#fefee2*/;
+  --buttons-reviews: #516f94;
+  --fieldset-color: #44566c;
+  --width-revmob: 80px;
+  --height-revmob: calc(var(--width-revmob) * 1.5);
+}
+
+[data-theme="disco"] {
+  --navbar-color: linear-gradient(#47ead0, #fe277e);
+  --footer-color: linear-gradient(#47ead0, #fe277e);
+  --title-font: "Jacques Francois", serif;
+  --title-color: #f2ff43;
+  --text-color: rgb(255, 255, 255);
+  --text-font: "Ibarra Real Nova", serif;
+  --body-image: url(source/barre_disco.jpg);
+  --fieldset-color: transparent;
+  --buttons-reviews: #fe277e;
+}
+
+/* ---------------- Fin Root --------------------------- */
+/*----------------------- Début body --------------*/
+
+body {
+  font: var(--text-font) var(--text-color);
+  background-color: var(--body-font);
+  background-image: var(--body-image);
+  color: var(--text-color);
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/*----------------------- Fin body --------------*/
+/*----------------------- Main --------------*/
+
+main {
+  min-height: calc(100vh - 60px - 59px);
+}
+
+/*----------------------- Fin body --------------*/
+/* -------------------- Content -----------------------*/
+
+content {
+  height: auto;
+  /* min-height: 80vh; */
+  padding-top: 10vh;
+  flex: 1 0 auto;
+}
+
+@media screen and (max-width: 800px) {
+  content {
+    padding-top: 90px;
+  }
+}
+
+/* -------------------- Fin content ------------------- */
+/* ------------------ Debut Navbar -------------------- */
+
+nav {
+  top: 0;
+  /* height: 10vh; */
+  /* min-height: 90px; */
+  position: fixed;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  list-style-type: none;
+  background: var(--navbar-color);
+  width: 100%;
+  background-color: var(--navbar-color);
+  font-family: var(--title-font);
+  font-size: 18px;
+  box-shadow: 0 5px 5px rgb(172, 172, 172);
+  z-index: 10;
+}
+
+.navbar-main {
+  height: 10vh;
+  min-height: 90px;
+  width: 97%;
+  padding: 0 1.5%;
+  display: flex;
+  justify-content: space-between;
+}
+
+a {
+  text-decoration: none;
+  color: var(--text-form);
+}
+
+@media screen and (min-width: 801px) {
+  .burger {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .burger {
+    align-self: flex-start;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+#burger-icon {
+  height: 54px;
+  width: 68px;
+  margin-top: 18px;
+  padding-left: 8px;
+}
+
+.burger a {
+  display: block;
+  border-bottom: 2px solid transparent;
+  padding: 10px 0px;
+}
+
+.burger a:hover {
+  color: white;
+}
+
+.burger-click {
+  height: 200px;
+  width: 100px;
+  font-family: var(--title-font);
+  z-index: 1000;
+}
+
+.burger-list {
+  display: none;
+  background-color: var(--navbar-color);
+  box-shadow: 0px 1px 2px #ccc;
+  background-color: var(--navbar-color);
+  position: absolute;
+  width: 100px;
+  z-index: 1000;
+  list-style-type: none;
+}
+
+.burger-list li {
+  float: none;
+  width: 100%;
+  text-align: left;
+  margin: 10px 0;
+}
+
+.burger:hover .burger-list {
+  display: block;
+}
+
+.button-burger {
+  height: 100%;
+  background: transparent;
+  border: none;
+  font-size: 0;
+  cursor: pointer;
+  outline: none;
+}
+
+#burger-menu {
+  width: 100%;
+  height: 100%;
+}
+
+.logo-mobile {
+  justify-self: center;
+}
+
+@media screen and (min-width: 801px) {
+  .logo-mobile {
+    transition: 0.5s;
+  }
+
+  .logo-mobile:hover {
+    transform: rotateY(180deg);
+    transition: 1s;
+    /* animation: spin 1s linear infinite; */
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.logo-mobile a img {
+  height: 80%;
+  /* width: 80px; */
+  padding: 10%;
+}
+
+.colormode {
+  display: flex;
+  width: 95px;
+  height: 100%;
+  justify-content: space-between;
+}
+
+.colormode label {
+  align-self: center;
+}
+
+.colormode img {
+  height: 40px;
+  width: 40px;
+  align-self: center;
+  justify-self: start;
+  padding-right: 10px;
+}
+
+.colormode div {
+  align-self: center;
+}
+
+.colormode div p {
+  color: var(--text-form);
+  width: 50px;
+  margin: auto;
+  font-size: large;
+}
+
+.theme-switch {
+  display: inline-block;
+  height: 17px;
+  position: relative;
+  width: 30px;
+}
+
+.theme-switch input {
+  display: none;
+}
+
+.slider {
+  background-color: #ccc;
+  bottom: 0;
+  cursor: pointer;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: 0.4s;
+}
+
+.slider:before {
+  background-color: var(--navbar-color);
+  bottom: 15%; /*2px*/
+  content: "";
+  height: 77%; /*13px*/
+  left: 10%; /*2px*/
+  position: absolute;
+  transition: 0.4s;
+  width: 43%; /*13px*/
+}
+
+input:checked + .slider {
+  background-color: #000000;
+}
+
+input:checked + .slider:before {
+  transform: translateX(85%);
+  background-color: var(--title-color);
+}
+
+@media screen and (max-width: 800px) {
+  .slider:before {
+    bottom: 10%; /*2px*/
+  }
+}
+
+.slider.round {
+  border-radius: 17px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.logo-titre {
+  display: flex;
+  height: 100%;
+}
+
+.titre-site {
+  font-family: "Concert One", cursive;
+  margin-right: 10%;
+  width: 100px;
+  display: none;
+  justify-content: space-around;
+  align-items: end;
+  font-size: 0.75rem;
+  color: var(--body-font);
+}
+
+@media screen and (min-width: 801px) {
+  .titre-site {
+    display: flex;
+  }
+}
+
+.menu {
+  display: none;
+  flex: 2;
+  justify-content: space-around;
+  align-items: center;
+  max-width: 55%;
+  padding-top: 8px;
+}
+
+@media screen and (min-width: 801px) {
+  .menu {
+    display: flex;
+  }
+}
+
+.menu h1 {
+  padding: 5px 14px 10px 14px;
+  transition: 0.2s;
+  color: var(--body-font);
+}
+
+.menu h1:hover {
+  color: var(--body-font);
+  font-size: 2.2rem;
+  transition: 0.3s;
+}
+
+.navbar-list {
+  min-height: 90px;
+  height: 10vh;
+  width: 100%;
+  background-color: var(--navbar-color);
+  top: 0;
+  display: none;
+  justify-content: center;
+  text-align: center;
+  box-shadow: 0 5px 5px rgb(172, 172, 172);
+  transition: 0.5s;
+}
+
+.navbar-list ul {
+  list-style-type: none;
+  text-decoration: none;
+  padding: 0;
+  align-self: flex-end;
+  margin: 10px 0;
+}
+
+.navbar-list ul li {
+  padding: 10px;
+  height: 30px;
+  font-size: 2rem;
+}
+
+.navbar-open {
+  display: flex;
+  transition: 0.8s;
+  height: 220px;
+  top: 0;
+  transition: 1s;
+}
+
+/* -------------------- Fin Navbar -------------------- */
+/*----------------------- Début Index --------------*/
+
+.contenuIndex {
+  display: flex;
+  flex-direction: column;
+}
+
+#img-index {
+  width: 100vw;
+  max-height: 501px;
+  max-width: 969px;
+  align-self: center;
+}
+
+.paragrapheIndex {
+  flex-direction: column;
+  margin: 0 15% 0 15%;
+  text-align: justify;
+  font-family: var(--title-font);
+}
+
+.titreIndex {
+  font-family: var(--title-font);
+  flex-direction: column;
+  margin: 0 15% 0 15%;
+  text-align: center;
+  color: var(--title-color);
+  text-shadow: 0.4em 0.4em 0.6em;
+  padding-top: 5%;
+}
+
+@media screen and (max-width: 800px) {
+  .titreIndex {
+    font-size: 0.5em;
+  }
+}
+
+/*----------------------- Fin Index --------------*/
+/*----------------------- Début Reviews --------------*/
+
+.reviews {
+  display: flex;
+  list-style-type: none;
+  margin: 2% 0 1% 0;
+  justify-content: space-between;
+}
+
+.reviews-navbar {
+  margin-left: 1.5%;
+  position: fixed;
+}
+
+@media screen and (min-width: 801px) {
+  .reviews-navbar {
+    width: 160px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .reviews-navbar {
+    width: 90px;
+  }
+}
+
+.reviews-filter {
+  height: 60px;
+  width: 140px;
+  margin: 30px 10px 30px 10px;
+  position: relative;
+  background-color: #fefefe;
+  border-radius: 10px;
+  transition: 0.1s;
+  -webkit-box-shadow: 0 15px 10px -10px rgba(0, 0, 0, 0.5),
+    0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+  -moz-box-shadow: 0 15px 10px -10px rgba(0, 0, 0, 0.5),
+    0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+  box-shadow: 0 15px 10px -10px rgba(0, 0, 0, 0.5), 0 1px 4px rgba(0, 0, 0, 0.3),
+    0 0 40px rgba(0, 0, 0, 0.1) inset;
+}
+
+@media screen and (min-width: 801px) {
+  .reviews-filter {
+    width: 140px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .reviews-filter {
+    width: 60px;
+  }
+}
+
+.reviews-filter button {
+  background-color: var(--buttons-reviews);
+  color: var(--text-form);
+  border-radius: 10px;
+  list-style-type: none;
+  text-decoration-style: none;
+  border: none;
+  outline: none;
+  width: 100%;
+  height: 100%;
+  transition: 0.1s;
+}
+
+@media screen and (min-width: 801px) {
+  .reviews-filter button {
+    font-size: 1em;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .reviews-filter button {
+    font-size: 0.6em;
+  }
+}
+
+.reviews-filter button:active {
+  font-size: 0.75em;
+}
+
+.reviews-navbar ul {
+  list-style-type: none;
+  text-decoration-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0;
+  margin: 0;
+}
+
+.reviews-navbar ul li {
+  height: 60px;
+  width: 60px;
+  margin: 10px;
+  border-radius: 10px;
+  /* box-shadow: 0 0 4px rgb(121, 121, 121); */
+  -webkit-box-shadow: 0 15px 10px -10px rgba(0, 0, 0, 0.5),
+    0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+  -moz-box-shadow: 0 15px 10px -10px rgba(0, 0, 0, 0.5),
+    0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+  box-shadow: 0 15px 10px -10px rgba(0, 0, 0, 0.5), 0 1px 4px rgba(0, 0, 0, 0.3),
+    0 0 40px rgba(0, 0, 0, 0.1) inset;
+}
+
+.reviews-logo li button {
+  position: relative;
+  border: none;
+  width: 100%;
+  height: 100%;
+  background-color: var(--buttons-reviews);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 50px;
+  border-radius: 10px;
+  outline: none;
+  transition: 0.1s;
+}
+
+.reviews-logo li button:active {
+  background-size: 45px;
+}
+
+.reviews-separator {
+  width: 1px;
+  background-color: var(--footer-color);
+  box-shadow: 0 0 2px var(--footer-color);
+}
+
+@media screen and (min-width: 801px) {
+  .reviews-separator {
+    margin-left: calc(2% + 170px);
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .reviews-separator {
+    margin-left: calc(2% + 90px);
+  }
+}
+
+.reviews-card {
+  margin: 0 2%;
+}
+
+@media screen and (min-width: 801px) {
+  .reviews-card {
+    width: calc(100% - 170px - 2%);
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .reviews-card {
+    width: calc(100% - 90px - 2%);
+    font-size: 0.5em;
+  }
+}
+
+.reviews-card h1
+{
+  font-family: var(--title-font);
+  color: var(--title-color);
+}
+
+#card {
+  /* display:flex;
+  flex-direction: column; */
+  text-align: center;
+  font-family: var(--text-font);
+  font-weight: 600;
+  padding: 2%;
+  -webkit-box-shadow: 0 15px 10px -10px rgba(0, 0, 0, 0.5),
+    0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+  -moz-box-shadow: 0 15px 10px -10px rgba(0, 0, 0, 0.5),
+    0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+  box-shadow: 0 15px 10px -10px rgba(0, 0, 0, 0.5), 0 1px 4px rgba(0, 0, 0, 0.3),
+    0 0 40px rgba(0, 0, 0, 0.1) inset;
+  top: 35vh;
+  left: 10vw;
+  position: fixed;
+  background: var(--body-font);
+  animation: appear 0.2s linear;
+  width: 80vw;
+  border-radius : 5px;
+  z-index: 11;
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 100;
+  }
+}
+
+@media screen and (max-width: 800px)
+{
+  #card {
+  top: 35vh;
+  left: 10vw;
+  width: 80vw;
+  font-size: 1.5em;
+  }
+}
+/* 
+.underlay {
+  display: none;
+}
+
+.underlay-visible{
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 10;
+} */
+
+
+.selected {
+  background-color: black;
+}
+
+.reviews-category {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.iconeReview {
+  background-size: 200px 300px;
+  background-repeat: no-repeat;
+  height: 300px;
+  width: 200px;
+  border-radius: 5%;
+  display: flex;
+  margin: 1%;
+  outline: none;
+}
+
+.close-icon
+{
+  background-color: var(--buttons-reviews);
+  color: var(--text-form);
+  font-weight: bold;
+  height: 30px;
+  width: 80px;
+  border-radius: 13px;
+  border: none;
+  top: 0;
+  left: 0;
+  font-size: 1em;
+}
+
+@media screen and (max-width: 800px) {
+  .close-icon button {
+    font-size: 0.9em;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .iconeReview {
+    width: var(--width-revmob);
+    height: var(--height-revmob);
+    border-radius: 5px;
+    background-size: var(--width-revmob) var(--height-revmob);
+  }
+}
+
+.iconeReviewAlbum {
+  background-size: 300px 300px;
+  height: 300px;
+  width: 300px;
+  border-radius: 20px;
+  display: flex;
+  margin: 1%;
+}
+
+@media screen and (max-width: 800px) {
+  .iconeReviewAlbum {
+    width: var(--height-revmob);
+    height: var(--height-revmob);
+    border-radius: 5px;
+    background-size: var(--height-revmob) var(--height-revmob);
+  }
+}
+
+/*----------------------- Fin Reviews --------------*/
+/* --------------------  Debut aboutme -------------------- */
+
+#aboutMeBody {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#aboutMeText::first-letter {
+  font-size: 54px;
+  font-weight: bold;
+  font-family: "UnifrakturMaguntia", cursive;
+  color: var(--title-color);
+}
+
+#aboutMeText {
+  display: block;
+  line-height: 1.5em;
+  text-align: justify;
+  width: 80%;
+  font-family: var(--text-font);
+  margin-left: 10%;
+  margin-top: 2%;
+  margin-right: 10%;
+  margin-bottom: 4%;
+  font-size: 18px;
+}
+
+#pictureOfMe {
+  width: 240px;
+  border-radius: 50%;
+  margin-top: 180px;
+  border-style: solid;
+  border-color: grey;
+  border-width: 1px;
+}
+
+.hidden {
+  display: none;
+}
+
+/* -------------------- Fin aboutme -------------------- */
+/*----------------------- Début Formulaire --------------*/
+
+#contactForm {
+  display: flex;
+  justify-content: center;
+  margin: 15vh 0 5vh 0;
+}
+
+@media screen and (max-width: 800px) {
+  #contactForm {
+    display: block;
+  }
+}
+
+fieldset {
+  text-align: center;
+  color: var(--text-form);
+  margin-top: 15px;
+  background-color: var(--fieldset-color);
+  padding: 16px;
+  margin: auto;
+  border: 2px;
+  border-radius: 10px;
+}
+
+@media screen and (max-width: 800px) {
+  fieldset {
+    background-color: transparent;
+    color: var(--fieldset-color);
+    padding: 0;
+  }
+}
+
+fieldset,
+fieldset img {
+  border-radius: 10px;
+}
+
+.champ {
+  padding: 2%;
+  margin: auto;
+}
+
+label {
+  display: block;
+  text-align: center;
+  font-family: var(--text-font);
+}
+
+input {
+  text-align: center;
+  justify-items: center;
+}
+
+#prenom,
+#motif,
+#nom,
+#mail {
+  margin: 2px 0;
+  padding: 1px;
+  width: 60%;
+}
+
+#motif {
+  margin-top: 10px;
+  width: 64%;
+}
+
+textarea {
+  width: 100%;
+  height: 100%;
+}
+
+#formpicture {
+  max-width: 800px;
+  width: 60vw;
+}
+
+/*----------------------- Fin Formulaire ----------------*/
+/*----------------------- Debut Scroll Top --------------*/
+#scroll-to-top-block {
+  width: 20px;
+  position: relative;
+  align-self: flex-end;
+  right: 50px;
+  bottom: 10px;
+}
+#scroll-to-top {
+  height: 25px;
+  bottom: 30px;
+  right: 30px;
+  cursor: pointer;
+  z-index: 100;
+  transform: translateY(100px);
+  transition: all .5s ease;
+  width: 40px;
+  opacity: 1;
+}
+
+.showBtn {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/*------------------- Fin Scroll Top -------------------*/
+/*------------------- Début Footer ---------------------*/
+
+footer {
+  background: var(--footer-color);
+  bottom: 0;
+  width: 100%;
+  height: 10vh;
+  min-height: 40px;
+  flex-shrink: 0;
+  max-height: 60px;
+}
+.logo {
+  margin: 10px;
+}
+
+.socialNetworkLogo {
+  width: 35px;
+  height: 35px;
+  float: right;
+  cursor: crosshair;
+  padding-left: 8px;
+}
+
+footer div a {
+  margin-left: 30px;
+  padding-bottom: 10px;
+  color: var(--text-form);
+}
+#contactezmoi {
+  padding-bottom: 0px;
+}
+
+/*------------------- Fin Footer -----------------------*/
+/*------------------- Debut transitions -----------------------*/
+.transition-fade {
+  transition: 0.4s;
+  opacity: 1;
+}
+
+html.is-animating .transition-fade {
+  opacity: 0;
+}
+/*------------------- Fin transitions -----------------------*/
